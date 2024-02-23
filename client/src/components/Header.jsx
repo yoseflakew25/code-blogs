@@ -60,7 +60,7 @@ export default function Header() {
         isScrolled ? 'bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg transition-all duration-500' : ''
       }`}
     >
-      <div className='flex justify-center items-center gap-2'>
+      <div className='flex justify-center items-center gap-2 ml-8'>
         <Link
           to='/'
           className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'
@@ -84,15 +84,8 @@ export default function Header() {
         </Button>
       </div>
 
-      <div className='flex gap-2 md:order-2'>
-        <Button
-          className='w-12 h-10 hidden sm:inline'
-          color='gray'
-          pill
-          onClick={() => dispatch(toggleTheme())}
-        >
-          {theme === 'light' ? <FaSun /> : <FaMoon />}
-        </Button>
+      <div className='flex gap-2 md:order-2 mr-8'>
+       
         {currentUser ? (
           <Dropdown
             arrowIcon={false}
@@ -111,7 +104,7 @@ export default function Header() {
           </Dropdown>
         ) : (
           <Link to='/sign-in'>
-            <Button gradientDuoTone='purpleToBlue' outline>
+            <Button gradientDuoTone='purpleToBlue' outline >
               Sign In
             </Button>
           </Link>
@@ -123,7 +116,7 @@ export default function Header() {
           <Link to='/'>Home</Link>
         </Navbar.Link>
         <Navbar.Link active={path === '/search'} as={'div'}>
-          <Link to='/blog'>Blogs</Link>
+          <Link to='/search'>Blogs</Link>
         </Navbar.Link>
         <Navbar.Link active={path === '/about'} as={'div'}>
           <Link to='/about'>About</Link>

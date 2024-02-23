@@ -7,9 +7,9 @@ const Hero = () => {
   
   return (
     <section id="about" >
-      <div className="-mt-16 lg:p-16 rounded-[4rem] space-y-6 md:flex md:gap-6 justify-center md:space-y-0 lg:items-center">
+      <div className="mt-4 lg:-mt-16 lg:p-16 rounded-[4rem] space-y-6 md:flex md:gap-6 justify-center md:space-y-0 lg:items-center">
         <div className=" mx-8 md:7/12 lg:w-1/2">
-          <h1 className="text-3xl font-bold lg:text-6xl">
+          <h1 className="text-3xl font-bold text-2xl lg:text-6xl">
           Welcome to my Blog
           </h1>
           <p className="my-8 text-gray-400  mb-12">

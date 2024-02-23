@@ -1,25 +1,58 @@
 import { Link } from 'react-router-dom';
 
 export default function PostCard({ post }) {
+  console.log(post)
   return (
-    <div className='group relative w-full border border-teal-500 hover:border-2 h-[400px] overflow-hidden rounded-lg sm:w-[430px] transition-all'>
-      <Link to={`/post/${post.slug}`}>
-        <img
-          src={post.image}
-          alt='post cover'
-          className='h-[260px] w-full  object-cover group-hover:h-[200px] transition-all duration-300 z-20'
-        />
-      </Link>
-      <div className='p-3 flex flex-col gap-2'>
-        <p className='text-lg font-semibold line-clamp-2'>{post.title}</p>
-        <span className='italic text-sm'>{post.category}</span>
-        <Link
-          to={`/post/${post.slug}`}
-          className='z-10 group-hover:bottom-0 absolute bottom-[-200px] left-0 right-0 border border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white transition-all duration-300 text-center py-2 rounded-md !rounded-tl-none m-2'
-        >
-          Read article
-        </Link>
-      </div>
+    <>
+
+<Link className="flex bg-[#1F2937] rounded-lg transition ease-in-out duration-300 hover:shadow-xl border-2 border-[#1F2937] hover:border-[#64FFDA]" to={`/post/${post.slug}`}>
+  <div className="rotate-180 p-2 [writing-mode:_vertical-lr]">
+    <time
+      datetime="2022-10-10"
+      className="flex items-center justify-between gap-4 text-md font-bold uppercase py-4"
+    >
+      
+      {post.category}
+    </time>
+  </div>
+
+  <div className="hidden sm:block sm:basis-56">
+    <img
+      alt=""
+      src={post.image}      className="aspect-square h-full w-full object-cover"
+    />
+  </div>
+
+  <div className="flex flex-1 flex-col justify-between">
+    <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
+      <a href="#">
+        <h3 className="uppercase  text-xl font-semibold">
+        {post.title}
+        </h3>
+      </a>
+
+      <p className="mt-4 line-clamp-3 text-sm/relaxed text-gray-300 " dangerouslySetInnerHTML={{ __html: post && post.content }}>
+      
+      {/* <div
+        className='p-3 max-w-2xl mx-auto w-full post-content'
+        dangerouslySetInnerHTML={{ __html: post && post.content }}
+      ></div> */}
+      </p>
     </div>
+
+    <div className="sm:flex sm:items-end sm:justify-end">
+      <Link 
+        to={`/post/${post.slug}`}
+        className="hover:text-gray-400 transition ease-in-out duration-300 mx-8 my-4"
+      >
+        Read Blog
+      </Link>
+    </div>
+  </div>
+</Link>
+
+
+    </>
+
   );
 }

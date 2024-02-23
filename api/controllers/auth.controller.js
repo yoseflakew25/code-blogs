@@ -19,10 +19,15 @@ export const signup = async (req, res, next) => {
 
   const hashedPassword = bcryptjs.hashSync(password, 10);
 
+
+  const isFirstAccount = (await User.countDocuments({})) === 0;
+  const isAdmin = isFirstAccount ? true : false;
+
   const newUser = new User({
     username,
     email,
     password: hashedPassword,
+    isAdmin
   });
 
   try {
@@ -34,8 +39,9 @@ export const signup = async (req, res, next) => {
 };
 
 export const signin = async (req, res, next) => {
+  console.log('signin successfulkk')
   const { email, password } = req.body;
-
+  console.log('signin successful2')
   if (!email || !password || email === '' || password === '') {
     next(errorHandler(400, 'All fields are required'));
   }
